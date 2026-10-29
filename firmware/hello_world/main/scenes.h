@@ -9,6 +9,7 @@ typedef enum {
     SCENE_BOUNCING,
     SCENE_STATS,
     SCENE_TUX,
+    SCENE_PIKA,
     SCENE_COUNT
 } scene_id_t;
 

@@ -15,6 +15,7 @@ Clicking the onboard **BOOT button (GPIO 0)** switches between 5 real-time modes
 | **3** | **Bounce Physics** | Screen collision physics with an "ESP32" bouncing box and elastic balls reflecting off display borders. |
 | **4** | **Hardware Diagnostics** | Real-time ESP32 uptime, free heap RAM monitor, concentric circles, nested rectangles, and geometric primitives showcase. |
 | **5** | **Linux Tux Penguin** | 48×52 Floyd-Steinberg dithered 1-bit bitmap of Tux with a retro terminal system badge. |
+| **6** | **Pikachu Pokémon Badge** | 56×52 cropped and dithered 1-bit Pikachu bitmap alongside a retro Pokédex status badge (#025 Electric). |
 
 ---
 
@@ -127,4 +128,3 @@ idf.py -p /dev/ttyUSB0 flash monitor
 
 ## 📜 License
 MIT License. Free to use, modify, and build upon.
-

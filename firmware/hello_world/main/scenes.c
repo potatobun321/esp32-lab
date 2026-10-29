@@ -1,6 +1,7 @@
 #include "scenes.h"
 #include "oled_graphics.h"
 #include "tux_bitmap.h"
+#include "pika_bitmap.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -281,7 +282,7 @@ static void render_stats_scene(void)
  * ------------------------------------------------------------- */
 static void render_tux_scene(void)
 {
-    oled_draw_text(2, 0, "5/5: Linux Tux", COLOR_WHITE);
+    oled_draw_text(2, 0, "5/6: Linux Tux", COLOR_WHITE);
     oled_draw_line(0, 9, 127, 9, COLOR_WHITE);
 
     // Draw Tux bitmap (48x52)
@@ -297,6 +298,29 @@ static void render_tux_scene(void)
     oled_draw_text(57, 34, "OS: Linux", COLOR_WHITE);
     oled_draw_text(57, 43, "ESP32 Lab", COLOR_WHITE);
     oled_draw_text(57, 52, "128x64 B/W", COLOR_WHITE);
+}
+
+/* -------------------------------------------------------------
+ * Scene 6: Pikachu Bitmap Demo (Pokedex style)
+ * ------------------------------------------------------------- */
+static void render_pika_scene(void)
+{
+    oled_draw_text(2, 0, "6/6: Pikachu", COLOR_WHITE);
+    oled_draw_line(0, 9, 127, 9, COLOR_WHITE);
+
+    // Draw Pikachu bitmap (56x52)
+    oled_draw_bitmap(2, 11, PIKA_WIDTH, PIKA_HEIGHT, pika_bitmap, COLOR_WHITE);
+
+    // Vertical separator
+    oled_draw_line(60, 10, 60, 63, COLOR_WHITE);
+
+    // Pokedex stats on the right
+    oled_draw_text(64, 12, "PIKACHU", COLOR_WHITE);
+    oled_draw_text(64, 21, "#025 Elec", COLOR_WHITE);
+    oled_draw_line(64, 30, 126, 30, COLOR_WHITE);
+    oled_draw_text(64, 34, "HP:  35", COLOR_WHITE);
+    oled_draw_text(64, 43, "ATK: 55", COLOR_WHITE);
+    oled_draw_text(64, 52, "ESP32 Lab", COLOR_WHITE);
 }
 
 /* -------------------------------------------------------------
@@ -333,6 +357,7 @@ const char* scenes_get_name(scene_id_t scene)
         case SCENE_BOUNCING:  return "Bouncing";
         case SCENE_STATS:     return "Diagnostics";
         case SCENE_TUX:       return "Linux Tux";
+        case SCENE_PIKA:      return "Pikachu";
         default:              return "Unknown";
     }
 }
@@ -356,6 +381,9 @@ void scenes_render_current_frame(void)
             break;
         case SCENE_TUX:
             render_tux_scene();
+            break;
+        case SCENE_PIKA:
+            render_pika_scene();
             break;
         default:
             break;
