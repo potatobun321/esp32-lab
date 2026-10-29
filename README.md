@@ -127,3 +127,4 @@ idf.py -p /dev/ttyUSB0 flash monitor
 
 ## 📜 License
 MIT License. Free to use, modify, and build upon.
+
